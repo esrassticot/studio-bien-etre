@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!-- Makes the site fit phone screens. Don't remove. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Studio Bien Être</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="top"><div class="wrap"><nav>
+    <a class="brand" href="#top">
+      <img class="mark" src="images/logo.png" width="48" height="48" alt="Logo Studio Bien Être">
+      <b class="script">Studio Bien être</b>
+    </a>
+    <ul>
+      <li><a href="#prestations">Prestations</a></li>
+      <li><a href="#studio">Le studio</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <!-- EDIT: phone number. "tel:" makes it dial when tapped on a phone.
+         Format: +213 then the number WITHOUT the first 0 -->
+    <a class="btn" href="tel:+213560061048">Appeler</a>
+  </nav></div></header>
+
+
+  <!-- ======================================================
+       HERO: the first thing visitors see
+       ====================================================== -->
+  <main class="wrap" id="top">
+    <div class="hero">
+      <div>
+        <span class="eyebrow">Esthétique · Soins · Onglerie</span>
+        <!-- EDIT: main title. The <span class="script"> part uses the handwriting font -->
+        <h1>Un moment pour<span class="script">votre bien-être</span></h1>
+        <!-- EDIT: intro text -->
+        <p>Au cœur de Chéraga, Studio Bien Être vous accueille pour des soins esthétiques, des soins du corps et une onglerie soignée, dans une ambiance douce et apaisante.</p>
+        <div class="btns">
+          <a class="btn" href="tel:+213560061048">Réserver par téléphone</a>
+          <a class="btn o" href="#prestations">Nos prestations</a>
+        </div>
+      </div>
+
+      <!-- Big logo in a circle -->
+      <div class="badge"><div class="ring">
+        <img class="mark" src="images/logo.png" width="340" height="340" alt="Logo Studio Bien Être">
+      </div></div>
+    </div>
+  </main>
+
+
+  <!-- ======================================================
+       SERVICES: 3 cards. To ADD a card, copy a whole
+       <div class="card"> ... </div> block and edit the text.
+       To add a service inside a card, copy one <li> line.
+       ====================================================== -->
+  <section id="prestations" class="band"><div class="wrap">
+    <div class="title">
+      <span class="eyebrow">Nos prestations</span>
+      <span class="script">Prenez soin de vous</span>
+    </div>
+
+    <div class="grid">
+
+      <!-- Card 1 -->
+      <div class="card">
+        <h3 class="script">Esthétique</h3>
+        <p class="desc">Pour une peau nette, douce et lumineuse.</p>
+        <ul>
+          <li>Soins du visage</li>
+          <li>Épilation</li>
+          <li>Regard &amp; sourcils</li>
+        </ul>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <h3 class="script">Soins</h3>
+        <p class="desc">Des instants de détente pour le corps et l'esprit.</p>
+        <ul>
+          <li>Soins du corps</li>
+          <li>Massages relaxants</li>
+          <li>Rituels bien-être</li>
+        </ul>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <h3 class="script">Onglerie</h3>
+        <p class="desc">Des mains et des pieds toujours impeccables.</p>
+        <ul>
+          <li>Manucure &amp; pédicure</li>
+          <li>Pose de vernis</li>
+          <li>Nail art</li>
+        </ul>
+      </div>
+
+    </div>
+  </div></section>
+
+
+  <!-- ======================================================
+       ABOUT: "Le studio" — a photo + a short presentation
+       ====================================================== -->
+  <section id="studio"><div class="wrap about">
+
+    <!-- EDIT: to use a real photo, DELETE the <div class="pic"> line below
+         and un-comment (remove the arrows around) the <img> line:
+
+         <img class="pic" src="images/studio.jpg" alt="Photo du studio">
+
+         Then put your photo in the images/ folder with that name. -->
+    <div class="pic"></div>
+
+    <div>
+      <span class="eyebrow">Le studio</span>
+      <h2 class="script">Douceur &amp; attention</h2>
+      <!-- EDIT: presentation text -->
+      <p>Studio Bien Être est un espace pensé pour vous faire du bien. Chaque soin est réalisé avec attention, dans un cadre calme, propre et chaleureux, pour que vous repartiez détendue et rayonnante.</p>
+      <!-- The little pill-shaped tags -->
+      <div class="vals">
+        <span>Accueil chaleureux</span>
+        <span>Hygiène irréprochable</span>
+        <span>Sur rendez-vous</span>
+      </div>
+    </div>
+
+  </div></section>
+
+
+
+  <section id="galerie" class="band"><div class="wrap">
+    <div class="title">
+      <span class="eyebrow">Galerie</span>
+      <span class="script">L'ambiance du studio</span>
+    </div>
+    <div class="gal">
+  <img src="images/nails.png" alt="Photo 1">
+  <img src="images/salon.png" alt="Photo 2">
+  <img src="images/nailtech.png" alt="Photo 3">
+  <img src="images/spa.png" alt="Photo 4">
+</div>
+  </div></section>
+
+
+  <!-- ======================================================
+       CONTACT
+       EDIT: phone (twice: the link AND the displayed text),
+       address, opening hours.
+       ====================================================== -->
+  <section id="contact"><div class="wrap contact">
+    <span class="eyebrow">Réservation par téléphone</span>
+    <a class="big" href="tel:+213560061048">0560 06 10 48</a>
+    <a class="btn" href="tel:+213560061048">Appeler maintenant</a>
+
+    <div class="info">
+      <span>📍 Chéraga, Alger</span>
+      <span>🕘 9h – 18h</span>
+      <span>Facebook : Studio Bien Être</span>
+    </div>
+  </div></section>
+
+
+  <!-- FOOTER -->
+  <footer>© 2026 Studio Bien Être — Chéraga, Alger · Maquette de site web</footer>
+
+</body>
+</html>

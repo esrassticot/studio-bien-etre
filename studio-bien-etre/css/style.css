@@ -1,0 +1,274 @@
+/* ==========================================================
+   STUDIO BIEN ÊTRE — style.css
+   This file controls how the website LOOKS (colors, fonts,
+   spacing, layout). The content/text lives in index.html.
+
+   TABLE OF CONTENTS (use Ctrl+F to jump to a section):
+   1. COLORS & VARIABLES   <- change the whole color scheme here
+   2. BASE STYLES
+   3. LOGO IMAGE
+   4. HEADER & MENU
+   5. BUTTONS
+   6. HERO (top section)
+   7. SECTIONS (shared spacing & titles)
+   8. SERVICES CARDS
+   9. ABOUT SECTION
+   10. GALLERY
+   11. CONTACT SECTION
+   12. FOOTER
+   13. MOBILE VERSION
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   1. COLORS & VARIABLES
+   A "variable" is a name for a value, written --like-this.
+   Change a color here and it changes everywhere on the site.
+   ---------------------------------------------------------- */
+:root {
+  --bg:      #faf5ef;  /* page background (cream)            */
+  --fg:      #4a2515;  /* main text color (dark brown)       */
+  --muted:   #8a6a58;  /* softer text (descriptions)         */
+  --card:    #fffdfa;  /* background of the white cards      */
+  --line:    #eadccd;  /* thin border lines                  */
+  --tan:     #cbb296;  /* beige taken from the logo          */
+  --brown:   #6b3a22;  /* main brand color (buttons, titles) */
+  --soft:    #f1e4d6;  /* light beige for colored sections   */
+  --onbrown: #fff8f0;  /* text color placed ON a brown button*/
+
+  /* Keeps content away from phone notches. Leave as is. */
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* DARK MODE: used automatically when the visitor's phone/PC
+   is set to dark mode. You can delete this block if you only
+   want the light version. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1f1511;  --fg: #f3e6d8;  --muted: #b9a08c;
+    --card: #2a1d17; --line: #403026; --soft: #2c1f18;
+    --brown: #cbb296; --onbrown: #2a1409;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   2. BASE STYLES (apply to the whole page)
+   ---------------------------------------------------------- */
+* { box-sizing: border-box; }   /* makes sizes easier to predict */
+
+html { scroll-behavior: smooth; } /* smooth scroll when clicking menu links */
+
+body {
+  margin: 0;                          /* remove default white border */
+  background: var(--bg);              /* var(--bg) = the color from above */
+  color: var(--fg);
+  font-family: "Jost", system-ui, sans-serif; /* main font */
+  line-height: 1.7;                   /* space between lines of text */
+}
+
+a { color: inherit; }                 /* links take the surrounding text color */
+
+/* Handwriting font (like the logo). Add class="script" in the
+   HTML to any text you want in this style. */
+.script {
+  font-family: "Great Vibes", "Brush Script MT", cursive;
+  font-weight: 400;
+}
+
+/* .wrap keeps content centered with a maximum width.
+   Every section content sits inside one. */
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;      /* auto left/right = centered */
+  padding: 0 22px;     /* space on the sides for phones */
+}
+
+
+/* ----------------------------------------------------------
+   3. LOGO IMAGE
+   The logo is the file images/logo.png (used in header + hero).
+   To change the logo, just replace that file with another PNG
+   that has the same name.
+   ---------------------------------------------------------- */
+.mark {
+  display: block;
+  border-radius: 50%;   /* makes it a circle */
+  object-fit: cover;
+}
+
+
+/* ----------------------------------------------------------
+   4. HEADER & MENU (top bar that stays visible when scrolling)
+   ---------------------------------------------------------- */
+header.top {
+  position: sticky;     /* stays at the top while scrolling */
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;           /* keeps it above other content */
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  display: flex;                   /* puts items side by side */
+  align-items: center;             /* vertical centering */
+  justify-content: space-between;  /* logo left, menu middle, button right */
+  padding: 10px 0;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand .mark { width: 48px; height: 48px; }          /* small logo size */
+.brand b { font-size: 1.7rem; line-height: 1; color: var(--brown); }
+
+nav ul {
+  display: flex; gap: 26px;        /* gap = space between menu links */
+  list-style: none; margin: 0; padding: 0;
+  font-size: .9rem; letter-spacing: .06em; text-transform: uppercase;
+}
+nav ul a { text-decoration: none; color: var(--muted); }
+nav ul a:hover { color: var(--brown); }  /* color change on mouse over */
+
+
+/* ----------------------------------------------------------
+   5. BUTTONS
+   .btn = filled brown button, .btn.o = outlined version
+   ---------------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 13px 28px;              /* inner space: top/bottom, left/right */
+  border-radius: 99px;             /* very round = pill shape */
+  background: var(--brown);
+  color: var(--onbrown);
+  text-decoration: none;
+  font-weight: 500; font-size: .92rem; letter-spacing: .05em;
+}
+.btn.o { background: none; color: var(--brown); border: 1px solid var(--tan); }
+
+
+/* ----------------------------------------------------------
+   6. HERO (first big section: title + logo circle)
+   ---------------------------------------------------------- */
+.hero {
+  display: grid;
+  gap: 40px;
+  /* 2 columns on desktop, automatically stacks on phones */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+  padding: 60px 0;
+}
+.eyebrow {            /* the small uppercase text above titles */
+  font-size: .74rem; letter-spacing: .3em; text-transform: uppercase; color: var(--muted);
+}
+h1 {
+  font-weight: 300;
+  font-size: clamp(2.2rem, 6vw, 3.6rem); /* size adapts to the screen */
+  line-height: 1.12; margin: 14px 0 18px;
+}
+h1 .script { display: block; font-size: 1.25em; color: var(--brown); line-height: 1; }
+.hero p { color: var(--muted); max-width: 440px; }
+.btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+
+/* Big logo circle on the right of the hero */
+.badge { display: flex; align-items: center; justify-content: center; }
+.badge .ring {
+  width: min(340px, 80vw);          /* never wider than the screen */
+  aspect-ratio: 1;                  /* keeps it a perfect square/circle */
+  border-radius: 50%;
+  background: var(--tan);
+  box-shadow: 0 0 0 10px var(--soft), 0 0 0 11px var(--tan); /* double ring effect */
+}
+.badge .mark { width: 100%; height: 100%; }
+
+
+/* ----------------------------------------------------------
+   7. SECTIONS (shared by all sections)
+   ---------------------------------------------------------- */
+section { padding: 64px 0; }           /* space above/below each section */
+.band { background: var(--soft); }     /* add class="band" for a beige background */
+.title { text-align: center; margin-bottom: 38px; }
+.title .script { display: block; font-size: 2.6rem; color: var(--brown); line-height: 1.1; margin-top: 6px; }
+
+
+/* ----------------------------------------------------------
+   8. SERVICES CARDS (Esthétique / Soins / Onglerie)
+   ---------------------------------------------------------- */
+.grid {
+  display: grid; gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* cards wrap automatically */
+}
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 22px; padding: 30px 26px; text-align: center;
+  transition: transform .2s;           /* smooth animation on hover */
+}
+.card:hover { transform: translateY(-4px); }  /* card lifts up on hover */
+.card .script { font-size: 2rem; color: var(--brown); margin: 0 0 6px; }
+.card .desc { color: var(--muted); margin: 0; }
+.card ul { list-style: none; margin: 12px 0 0; padding: 0; color: var(--muted); font-size: .95rem; }
+.card li { padding: 5px 0; border-top: 1px solid var(--line); }
+.card li:first-child { border-top: 0; }
+
+
+/* ----------------------------------------------------------
+   9. ABOUT SECTION ("Le studio")
+   ---------------------------------------------------------- */
+.about {
+  display: grid; gap: 36px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: center;
+}
+.about p { color: var(--muted); }
+.about h2 { font-size: 2.8rem; font-weight: 400; margin: 6px 0 10px; color: var(--brown); line-height: 1.1; }
+.pic {
+  background: url("../images/acceuil.png") center / cover no-repeat,
+              linear-gradient(160deg, var(--tan), var(--soft));
+
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: 20% 20px;
+}
+.vals { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+.vals span { padding: 6px 16px; border-radius: 99px; border: 1px solid var(--tan); font-size: .85rem; color: var(--brown); }
+
+
+/* ----------------------------------------------------------
+   10. GALLERY
+   ---------------------------------------------------------- */
+.gal { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.gal > * {                              /* each gallery item (a div or an img) */
+  aspect-ratio: 1; width: 100%; border-radius: 18px; object-fit: cover;
+  background: linear-gradient(135deg, var(--tan), var(--soft));
+  display: flex; align-items: center; justify-content: center;
+  color: var(--brown); font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
+}
+
+
+/* ----------------------------------------------------------
+   11. CONTACT SECTION
+   ---------------------------------------------------------- */
+.contact { text-align: center; }
+.contact .big {                         /* the big phone number */
+  display: block; margin: 10px 0 22px;
+  font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 300;
+  color: var(--brown); text-decoration: none; letter-spacing: .04em;
+}
+.info { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 30px; color: var(--muted); font-size: .95rem; }
+
+
+/* ----------------------------------------------------------
+   12. FOOTER
+   ---------------------------------------------------------- */
+footer { padding: 28px 0; text-align: center; font-size: .8rem; color: var(--muted); border-top: 1px solid var(--line); }
+
+
+/* ----------------------------------------------------------
+   13. MOBILE VERSION
+   Rules inside here only apply on screens 640px wide or less
+   ---------------------------------------------------------- */
+@media (max-width: 640px) {
+  nav ul { display: none; }             /* hides the menu links on phones */
+  .hero { padding: 36px 0; }
+  .brand b { font-size: 1.45rem; }
+}
